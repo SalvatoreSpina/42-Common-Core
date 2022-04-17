@@ -1,0 +1,38 @@
+| $ sudo adduser username
+| $ sudo chage -l username
+| $ sudo adduser username sudo
+| $ sudo adduser username user42
+| $ cut -f1 -d: /etc/passwd
+| $ cut -f1 -d: /etc/group
+
+1) lsblk                              1 <- Check partitions
+2) sudo aa-status                     2 <- AppArmor status
+3) getent group sudo                  3 <- sudo group users
+4) getent group user42                4 <- user42 group users
+5) sudo service ssh status            5 <- ssh status
+6) sudo ufw status                    6 <- ufw status
+7) ssh username@ipadress -p 4242      7 <- connect to VM from your host machine via SSH
+8) nano /etc/sudoers.d/<filename>     8 <- sudo config file
+9) nano /etc/login.defs               9 <- password expire policy
+10) nano /etc/pam.d/common-password  10 <- password policy
+11) sudo crontab -l                  11 <- cron schedule
+
+[$sudo nano /etc/hostname]
+
+[$cd /var/log/sudo/00/00 && ls]
+[$ sudo apt update]
+[$ ls]
+[$ cd <nameofnewdirectory> && ls]
+[$ cat log] <- Input log
+[$ cat ttyout] <- Output log
+
+Add a port
+[$ sudo ufw allow X] <- allow
+[$ sudo ufw status] <- check
+[$ sudo ufw deny X] <- deny 
+
+Sample Crono
+[$ sudo crontab -e]
+/path/monitoring.sh
+sleep 30s && /path/monitoring.sh
+
