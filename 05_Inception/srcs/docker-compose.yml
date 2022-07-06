@@ -1,0 +1,147 @@
+# https://www.techrepublic.com/article/how-to-build-a-docker-compose-file/
+version: '3'
+services:
+
+  # MariaDB
+  mariadb:
+    container_name: mariadb
+    build: requirements/mariadb
+    image: mariadb
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - infrastructure
+    env_file:
+      - .env
+    restart: always
+
+  # WordPress
+  wordpress:
+    container_name: wordpress
+    build: requirements/wordpress/
+    image: wordpress
+    volumes:
+      - www-data:/var/www/html/wordpress
+    depends_on:
+      - mariadb
+    networks:
+      - infrastructure
+    env_file:
+      - .env
+    restart: always
+
+  # NGINX
+  nginx:
+    container_name: nginx
+    build: requirements/nginx/
+    image: nginx
+    volumes:
+      - www-data:/var/www/html/wordpress
+    ports:
+      - 443:443
+    depends_on:
+      - wordpress
+    networks:
+      - infrastructure
+    env_file:
+      - .env
+    restart: always
+
+# Bonus
+  
+  # Static Website
+  website:
+    container_name: website
+    build: requirements/bonus/website/
+    image: website
+    ports:
+      - "7777:7777"
+    networks:
+      - infrastructure
+    env_file:
+      - .env
+    restart: always
+
+  # FTPS
+  ftp:
+    container_name: ftps
+    build: requirements/bonus/ftp/
+    image: ftps
+    volumes:
+      - www-data:/home/sspina
+    ports:
+      - "21:21"
+      - "21000:21000"
+    networks:
+      - infrastructure
+    env_file:
+      - .env
+    restart: always
+  
+  # Redis
+  redis:
+    container_name: redis
+    build: requirements/bonus/redis/
+    image: redis
+    ports:
+      - 6379:6379
+    depends_on:
+      - nginx
+    networks:
+      - infrastructure
+    env_file:
+      - .env
+    restart: always
+
+  # Adminer
+  adminer:
+    container_name: adminer
+    build: requirements/bonus/adminer/
+    image: adminer
+    ports:
+      - 7077:7077
+    depends_on:
+      - nginx
+    networks:
+      - infrastructure
+    restart: always
+
+  # Backup system
+  backup:
+    container_name: backup
+    build: requirements/bonus/auto_backup/
+    image: backup
+    networks:
+      - infrastructure
+    depends_on:
+      - mariadb
+    volumes:
+      - db-data:/db-data
+      - backup-data:/backup
+    restart: always
+    env_file:
+      - .env
+
+# Network
+# https://docs.docker.com/network/bridge/
+networks:
+  infrastructure:
+    driver: bridge
+
+# Volumes
+volumes:
+  db-data:
+    driver_opts:
+      type: none
+      device: /home/sspina/data/db-data
+      o: bind
+  www-data:
+    driver_opts:
+      type: none
+      device: /home/sspina/data/www-data
+      o: bind
+  backup-data:
+    driver_opts:
+      type: none
+      device: /home/sspina/data/backup-data
+      o: bind
