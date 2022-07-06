@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achansel <achansel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sspina <sspina@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 11:59:23 by sspina            #+#    #+#             */
-/*   Updated: 2022/07/05 20:47:35 by achansel         ###   ########.fr       */
+/*   Updated: 2022/07/06 12:17:01 by sspina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
-
-// Default spawn is N, so Andreino you rotate if needed
 
 int	spawn_dir(t_everything *all)
 {

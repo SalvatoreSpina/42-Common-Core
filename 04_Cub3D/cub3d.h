@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achansel <achansel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sspina <sspina@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 13:57:20 by sspina            #+#    #+#             */
-/*   Updated: 2022/07/05 21:10:36 by achansel         ###   ########.fr       */
+/*   Updated: 2022/07/06 12:16:49 by sspina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -187,12 +187,6 @@ typedef struct s_everything {
 	long			x_depth[WWIDTH];
 }			t_everything;
 
-// You did a structure with all others structures inside ?
-// Yes
-// How is called?
-// Everything
-//                      -Almost a meme
-
 typedef struct s_color {
 	int				r;
 	int				g;
@@ -301,7 +295,7 @@ float			get_blending_by_dst(t_everything *all, int dist);
 int				error_msg(char *message);
 int				success_msg(char *message);
 
-//	fake_libft.c (beacuse me and the homies only fake libft)
+//	fake_libft.c
 
 char			**free_bi_dimensional(char **array);
 int				rows_counter(char **array);

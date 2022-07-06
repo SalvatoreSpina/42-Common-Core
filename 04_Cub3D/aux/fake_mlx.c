@@ -3,23 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   fake_mlx.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achansel <achansel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sspina <sspina@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 13:08:57 by sspina            #+#    #+#             */
-/*   Updated: 2022/07/05 21:06:55 by achansel         ###   ########.fr       */
+/*   Updated: 2022/07/06 12:17:51 by sspina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
-
-// MLX is good but i'm better
-//                       -Sun Tzu
-
-/*
-    Just_image_to_windows but left corner.
-    Called 'a' instead of all because lines too long lmao
-	
-*/
 
 int	show_img(t_everything *a)
 {

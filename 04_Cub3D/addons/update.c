@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   update.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achansel <achansel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sspina <sspina@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 18:01:00 by achansel          #+#    #+#             */
-/*   Updated: 2022/07/05 21:13:54 by achansel         ###   ########.fr       */
+/*   Updated: 2022/07/06 12:17:44 by sspina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,6 @@ static void	update_animations(t_everything *all, unsigned long now)
 		}
 	}
 }
-//	printf("Update animations called\n");
-//	printf("Updating animable: %d\n", i);
 
 int	switch_door(t_everything *all)
 {
