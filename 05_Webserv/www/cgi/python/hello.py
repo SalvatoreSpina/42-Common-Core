@@ -1,0 +1,1 @@
+print("Hello World! If you are seeing this, Python CGI is correctly executed!")
